@@ -1,0 +1,97 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+  Disfraces - Zayro Disfraces
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <form method="get" action="{% url 'products' %}" class="mb-4">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label for="min_price">Min Price:</label>
+                <input type="number" name="min_price" id="min_price" class="form-control" value="{{ request.GET.min_price }}">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="max_price">Max Price:</label>
+                <input type="number" name="max_price" id="max_price" class="form-control" value="{{ request.GET.max_price }}">
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="categoria">Categoria:</label>
+                <select name="categoria" id="categoria" class="form-control">
+                    <option value="">All</option>
+                    {% for categoria in categorias %}
+                        <option value="{{ categoria.categoria }}">{{ categoria.categoria }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="talla">Talla:</label>
+                <select name="talla" id="talla" class="form-control">
+                    <option value="">All</option>
+                    {% for talla in tallas %}
+                        <option value="{{ talla.talla }}">{{ talla.talla }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+
+    <div class="row">
+        {% for inventario in inventarios %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="overflow-hidden">
+                        <img src="{% if settings.AWS_STORAGE_BUCKET_NAME %}https://{{ settings.AWS_S3_CUSTOM_DOMAIN }}/{{ inventario.id_producto.imagen_disfraz }}{% else %}{{ inventario.id_producto.imagen_disfraz.url }}{% endif %}" class="card-img-top product-image" alt="Product Image">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="{% url 'inventario_detail' inventario.id_inventario %}">
+                                {{ inventario.id_producto.nombre_disfraz }}
+                            </a>
+                        </h5>
+                        <p class="card-text">{{ inventario.id_producto.descripcion }}</p>
+                        <p class="card-text"><strong>Talla:</strong> {{ inventario.id_producto.id_talla }}</p>
+                        <p class="card-text"><strong>Categoría:</strong> {{ inventario.id_producto.id_categoria }}</p>
+                        <p class="card-text"><strong>Cantidad:</strong> {{ inventario.cantidad }}</p>
+                        <p class="card-text"><strong>Precio unitario:</strong> COP {{ inventario.precio_unitario|floatformat:"2" }}</p>
+                        <form action="{% url 'checkout' inventario.id_inventario %}" method="post">
+                            {% csrf_token %}
+                            {% if request.user.is_authenticated %}
+                                <button type="submit" class="btn btn-primary">Comprar ahora</button>
+                            {% else %}
+                                <button type="button" class="btn btn-primary" disabled>Comprar ahora (Inicia sesión)</button>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<style>
+    .product-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        transition: transform 0.2s ease-in-out; 
+    }
+
+    .product-image:hover {
+        transform: scale(1.1);
+    }
+</style>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock %}

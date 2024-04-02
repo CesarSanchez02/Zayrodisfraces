@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}" />
+    <title>
+      {% block title %}
+        Zayro Disfraces
+      {% endblock %}
+    </title>
+
+    <link rel="stylesheet" href="{% static 'css/inicio/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/inicio/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/inicio/footer.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/inicio/sidebar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+
+    {% block head %}
+
+    {% endblock %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.2.4/css/simple-line-icons.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="sidebar">
+      {% include 'common/sidebar.html' %}
+    </nav>
+    <header>
+      <div class="header-inner">
+        <div class="nav-btn nav-slider menu-icon">
+          <i class="material-icons" id="menu">menu</i>
+        </div>
+        <div class="logo">
+          <h2 class="zayro" onclick="location.href = '{% url 'inicio' %}'">ZAYRO <span class="disfraces">DISFRACES</span></h2>
+        </div>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#userPanel"><i class="material-icons">person</i></button>
+        <div class="modal fade" id="userPanel" tabindex="-1" role="dialog" aria-labelledby="userPanelLabel" aria-hidden="true">
+          {% include 'common/modal.html' %}
+        </div>
+      </div>
+      <div class="tabs-container">
+        <nav class="tabs">
+          <a href="{% url 'inicio' %}" class="tab inicio">INICIO</a>
+          <a href="{% url 'products' %}" class="tab disfraces">DISFRACES</a>
+          <a href="{% url 'nosotros' %}" class="tab nosotros">NOSOTROS</a>
+          {% if user.is_staff %}
+            <a href="{% url 'admin:index' %}" class="tab dashboard">Panel de control</a>
+          {% endif %}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}
+
+      {% endblock %}
+    </main>
+
+    <footer class="footer-distributed text-center" id="footer-sect">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="footer-icons">
+              <a href="https://web.facebook.com/profile.php?id=100071645477855"><i class="fa fa-facebook"></i></a>
+              <a href="https://twitter.com/ZDisfraces"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-whatsapp"></i></a>
+              <a href="https://www.instagram.com/zdisfraces/"><i class="fa fa-instagram"></i></a>
+            </div>
+            <p class="footer-links">
+              <a href="{% url 'inicio' %}">Inicio</a> ·
+              <a href="{% url 'products' %}">Disfraces</a> ·
+              <a href="{% url 'inicio' %}">Nosotros</a> {% if user.is_staff %}
+                ·
+                <a href="{% url 'admin:index' %}">Panel de control</a>
+              {% endif %}·{% if user.is_authenticated %}
+                <a href="{% url 'inicio' %}">Cambiar contraseña</a> · <a href="{% url 'account_logout' %}">Cerrar sesión</a>
+              {% else %}
+                <a href="{% url 'inicio' %}">Iniciar sesión</a> ·
+                <a href="{% url 'inicio' %}">Registrarse</a>
+              {% endif %}
+            </p>
+            <p class="footer-company-name">Zayro System © 2023</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/inicio/index.js' %}"></script>
+    {% block scripts %}
+
+    {% endblock %}
+    <div class="overlay"></div>
+  </body>
+</html>

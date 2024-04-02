@@ -1,0 +1,214 @@
+.sidebar {
+    overflow-y: auto;
+    position: fixed;
+    top: 0px;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    color: #fff;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    opacity: 0.9;
+    z-index: 1002;
+}
+
+.sidebar .nav-header {
+    display: block;
+    background-color: var(--main-5th);
+}
+
+.sidebar .nav-header .logo-wrap {
+    padding: 1.7em 1em;
+}
+
+.sidebar .nav-header .logo-wrap .logo-icon {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.sidebar .nav-header .logo-wrap .logo-icon img {
+    display: block;
+    border-radius: 50%;
+}
+
+.sidebar .nav-header .logo-wrap .logo-text {
+    display: inline-block;
+    color: #fff;
+    font-size: 1.2em;
+    vertical-align: 12px;
+    margin-left: 8px;
+    text-decoration: none;
+}
+
+.sidebar .nav-header .nav-search {
+    position: relative;
+    height: 40px;
+}
+
+.sidebar .nav-header .nav-search .search {
+    display: block;
+    position: relative;
+}
+
+.sidebar .nav-header .nav-search .search i {
+    position: absolute;
+    top: 8px;
+    right: 0.7em;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.sidebar .nav-header .nav-search .search input[type="search"] {
+    width: 100%;
+    height: 40px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 15px;
+    padding: 0 48px 0 20px;
+    outline: none;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .nav-header .nav-search .search ::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.sidebar .nav-header .nav-search .search ::-moz-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .nav-header .nav-search .search :-moz-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .nav-header .nav-search .search :-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .nav-categories li {
+    display: block;
+    position: relative;
+}
+
+.sidebar .nav-categories li a {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    color: #5c5c5c;
+    padding: 0.625em 1.3em;
+    text-decoration: none;
+}
+
+.sidebar .nav-categories li a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.open {
+    left: 0px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.275);
+    opacity: 1;
+}
+
+.sidebar .nav-separator {
+    width: 100%;
+    height: 1px;
+    margin: 7px 0;
+    background-color: rgba(0, 0, 0, 0.175);
+}
+
+.sidebar .nav-link-title {
+    display: block;
+    color: #3f51b5;
+    font-size: 1rem;
+    padding: 0.5em 1.3em;
+}
+
+.sidebar .social {
+    display: flex;
+    margin: 4px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.155);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.155);
+}
+
+.sidebar .social li {
+    display: inline-block;
+    position: relative;
+    width: 25%;
+    height: 28px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 28px;
+    flex-direction: row;
+    border-right: 1px solid rgba(0, 0, 0, 0.175);
+}
+
+.sidebar .social li:last-child {
+    border-right: 0;
+}
+
+.sidebar .social li a {
+    display: block;
+    color: #5c5c5c;
+    font-size: 15px;
+    padding: 2px;
+    text-decoration: none;
+}
+
+.sidebar .social li a.twitter:hover {
+    color: #00baf0;
+}
+
+.sidebar .social li a.facebook:hover {
+    color: #3b5997;
+}
+
+.sidebar .social li a.instagram:hover {
+    color: #da1d65;
+}
+
+.sidebar .social li a.whatsapp:hover {
+    color: #3eb027;
+}
+
+.sidebar .copyright {
+    display: block;
+    color: #5c5c5c;
+    text-align: center;
+    padding: 0.5em 0 1em;
+}
+
+.sidebar .copyright span {
+    display: block;
+    width: 100%;
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.sidebar,
+.nav-btn,
+.nav-slider,
+#menu {
+    position: absolute;
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .sidebar,
+    .nav-btn,
+    .nav-slider,
+    #menu {
+        position: absolute;
+        display: block;
+    }
+
+    #menu,
+    .nav-btn.nav-slider {
+        position: relative;
+        color: var(--main-1st);
+        top: 4px;
+    }
+
+}

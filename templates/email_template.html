@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Recepción de PQRS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333333;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #000000;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        blockquote {
+            border-left: 4px solid #007bff;
+            padding-left: 15px;
+            margin: 0;
+            font-style: italic;
+        }
+        .signature {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hola {{ name }},</h1>
+        <p>Te queremos informar que hemos recibido tu solicitud PQRS de tipo <strong>{{ tipo_pqrs }}</strong> con la siguiente descripción:</p>
+        <blockquote>{{ message }}</blockquote>
+        <blockquote>Tu numero de radicado para que busques en nuestra pagina es: {{ numero_radicado_generado }}</blockquote>
+        <p>Ha sido correctamente enviada y será procesada por nuestro equipo. Te mantendremos informado/a sobre cualquier novedad relacionada con tu solicitud.</p>
+        <p class="signature">Atentamente,<br>Zayro Disfraces</p>
+    </div>
+</body>
+</html>

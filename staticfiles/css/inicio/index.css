@@ -1,0 +1,374 @@
+@font-face {
+    font-family: 'Lemonada';
+    src: url('fonts/Lemonada/static/Lemonada-Bold.ttf) format('ttf');
+}
+
+
+:root {
+    --main-1st: #ffffff;
+    --main-2nd: #9E5DC9;
+    --main-3rd: #900C3E;
+    --main-4th: #571845;
+    --main-5th: #222228;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
+
+::-webkit-scrollbar:horizontal {
+    display: none;
+}
+
+html,
+body {
+    background-color: var(--main-1st) !important;
+    height: 100vh;
+}
+
+body {
+    padding-right: 0px !important;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    margin: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-family: 'Lemonada', cursive;
+    line-height: 1.5;
+    background-color: grey;
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    font-size: 13px;
+}
+
+*,
+*::after,
+*::before {
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+a {
+    outline: none;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+strong {
+    color: red;
+}
+
+.error {
+    color: red;
+}
+
+@media only screen and (min-width: 768px) {
+    body .overlay {
+        display: none;
+    }
+}
+
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 100px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.285);
+    z-index: 1001;
+}
+
+.show {
+    display: block;
+}
+
+.ul-base {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    line-height: 0;
+    clear: both;
+}
+
+#title {
+    text-align: center;
+    color: var(--main-1st);
+}
+
+#title2 {
+    text-align: center;
+    margin: auto;
+    color: var(--main-5th);
+}
+
+.hr-text {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: var(--main-5th);
+    text-align: center;
+    height: 1.5em;
+    font-size: 30px;
+    background: var(--main-1st);
+    margin: 0;
+}
+
+.hr-text:before {
+    content: "";
+    background: var(--main-4th);
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 50%;
+    height: 2px;
+}
+
+.hr-text:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    background-color: #fcfcfa;
+}
+
+.hr-text2 {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: var(--main-5th);
+    text-align: center;
+    height: 1.5em;
+    font-size: 30px;
+}
+
+.hr-text2:before {
+    content: "";
+    background: var(--main-3rd);
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 50%;
+    height: 2px;
+}
+
+.hr-text2:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    background-color: #fcfcfa;
+}
+
+.hr-text3 {
+    line-height: 1em;
+    position: relative;
+    outline: 0;
+    border: 0;
+    color: var(--main-5th);
+    text-align: center;
+    height: 1.5em;
+    font-size: 30px;
+}
+
+.hr-text3:before {
+    content: "";
+    background: var(--main-4th);
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 50%;
+    height: 2px;
+}
+
+.hr-text3:after {
+    content: attr(data-content);
+    position: relative;
+    display: inline-block;
+    color: black;
+    padding: 0 0.5em;
+    line-height: 1.5em;
+    background-color: #fcfcfa;
+}
+
+.subtitle {
+    color: var(--main-2nd);
+}
+
+.coltitle {
+    color: var(--main-2nd);
+}
+
+.login {
+    position: relative;
+    background-color: #23242A;
+    color: var(--main-1st);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 20px;
+    font-family: 'Lemonada', cursive;
+    border-color: var(--main-4th);
+    margin-left: 0;
+    width: 200px;
+    border-style: solid;
+}
+
+.login:hover {
+    background-color: var(--main-4th);
+}
+
+.logout {
+    left: 2%;
+}
+
+.tabs-container {
+    border-bottom: 2px solid black;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab {
+    color: #616267;
+    font-size: 20px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    border-top: 2px solid var(--main-5th);
+    border-left: 2px solid var(--main-5th);
+    border-right: 2px solid var(--main-5th);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: var(--main-1st);
+    transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+    background-color: var(--main-3rd);
+    color: white;x
+}
+
+.tab.active, .sidebar .nav-categories li .active {
+    color: var(--main-3rd);
+    text-decoration: none;
+}
+
+.centeredText {
+    text-align: center;
+    margin: 20px 0;
+    clear: both;
+    overflow: hidden;
+    text-transform: uppercase;
+    color: var(--main-1st);
+}
+
+.action_btns {
+    clear: both;
+    overflow: hidden;
+}
+
+.action_btns a {
+    display: block;
+}
+
+.btn {
+    padding: 10px 20px;
+    background: #F4F4F2;
+}
+
+.btn_red {
+    background: #ED6347;
+    color: #FFF;
+    font-family: 'Lemonada', cursive;
+}
+
+.btn:hover {
+    background: #E4E4E2;
+}
+
+.btn_red:hover {
+    background: #C12B05;
+    cursor: pointer
+}
+
+a.btn {
+    color: #666;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.btn_red {
+    color: #FFF;
+}

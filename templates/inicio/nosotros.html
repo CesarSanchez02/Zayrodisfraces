@@ -1,0 +1,171 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/inicio/nosotros.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+{% endblock %}
+
+{% block title %}
+  Nosotros - Zayro Disfraces
+{% endblock %}
+
+{% block content %}
+<section class="info-general">
+  <div class="info">
+      <h1>CONÓCENOS</h1>
+      <p>¿Quieres descubrir más sobre quiénes somos y cómo hacemos que tus sueños de disfraces cobren vida?</p>
+  </div>
+
+  <div class="valores">
+      <div class="valores-item">
+          <img src="{% static 'images/objetivo.png' %}" alt="Imagen-Mision" class="templatemo-feature" />
+          <h4>MISIÓN</h4>
+          <p>La misión de Zayro Disfraces es proporcionar disfraces de alta calidad a través de una plataforma en línea eficiente, fortaleciendo la fidelización de nuestros clientes y ofreciendo una experiencia de compra excepcional. Queremos satisfacer de manera duradera las necesidades de nuestros clientes en el mundo de los disfraces.</p>
+      </div>
+
+      <div class="valores-item">
+          <img src="{% static 'images/vision.png' %}" alt="Imagen-Vision" class="templatemo-feature" />
+          <h4>VISIÓN</h4>
+          <p>La visión de Zayro Disfraces es ser un líder en la industria de disfraces, ofreciendo productos de calidad a nivel nacional e internacional, con una fuerte presencia en línea y relaciones duraderas con los clientes, siendo la opción preferida para disfraces únicos y una experiencia de compra excepcional.</p>
+      </div>
+
+      <div class="valores-item">
+          <img src="{% static 'images/historia.png' %}" alt="Imagen-Historia" class="templatemo-feature" />
+          <h4>HISTORIA</h4>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis praesentium ab eveniet. Dolor aut nisi sequi modi. Possimus iure molestiae temporibus, facilis ad beatae nam vitae laudantium ipsam et doloribus?</p>
+      </div>
+  </div>
+</section>
+
+
+  <section class="seccion-testimonios">
+    <div class="info-2">
+      <h1>TESTIMONIOS</h1>
+    </div>
+
+    <div class="carrusel-testimonios owl-carousel owl-carousel1 owl-theme">
+      <div class="tarjeta text-center">
+        <img class="tarjeta-imagen" src="{% static 'images/brian.jpeg' %}" alt="" />
+        <div class="tarjeta-cuerpo">
+          <h5>
+            Brian Parada<br />
+            <span>Gerente de Proyecto</span>
+          </h5>
+          <p class="tarjeta-texto">“ Me gustó trabajar en este proyecto ”</p>
+        </div>
+      </div>
+
+      <div class="tarjeta text-center">
+        <img class="tarjeta-imagen" src="{% static 'images/cesar.jpeg' %}" alt="" />
+        <div class="tarjeta-cuerpo">
+          <h5>
+            César Sanchez <br />
+            <span>Gerente de Proyecto</span>
+          </h5>
+          <p class="tarjeta-texto">“ Tuvimos muchos obstaculos pero se logró ”</p>
+        </div>
+      </div>
+
+      <div class="tarjeta text-center">
+        <img class="tarjeta-imagen" src="{% static 'images/diego.jpeg' %}" alt="" />
+        <div class="tarjeta-cuerpo">
+          <h5>
+            Diego Navarro <br />
+            <span>Gerente de Proyecto</span>
+          </h5>
+          <p class="tarjeta-texto">“ Tuvimos un gran equipo de trabajo ”</p>
+        </div>
+      </div>
+
+      <div class="tarjeta text-center">
+        <img class="tarjeta-imagen" src="{% static 'images/vela.jpeg' %}" alt="" />
+        <div class="tarjeta-cuerpo">
+          <h5>
+            Camila Hurtado <br />
+            <span>Cliente</span>
+          </h5>
+          <p class="tarjeta-texto">“ Muy buena calidad de los productos ”</p>
+        </div>
+      </div>
+
+      <div class="tarjeta text-center">
+        <img class="tarjeta-imagen" src="{% static 'images/mike.jpeg' %}" alt="" />
+        <div class="tarjeta-cuerpo">
+          <h5>
+            Michael Campos <br />
+            <span>Cliente</span>
+          </h5>
+          <p class="tarjeta-texto">“ Siempre busco en esta tienda disfraces para halloween ”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-container">
+        <h3>¿Tienes algo para decirnos?</h3>
+        <h3>Llena este formulario PQRS y te responderemos lo antes posible</h3>
+
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" name="name" class="form-control" id="name" placeholder="Ingresa tu nombre" required>
+          </div>
+      
+          <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" name="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico" required>
+          </div>
+      
+          <div class="form-group">
+              <label for="tipo_pqrs">Tipo de PQRS</label>
+              <select name="tipo_pqrs" class="form-control" id="tipo_pqrs" required>
+                  <option value="">---</option>
+                  <option value="Pregunta">Pregunta</option>
+                  <option value="Queja">Queja</option>
+                  <option value="Reclamo">Reclamo</option>
+                  <option value="Sugerencia">Sugerencia</option>
+              </select>
+          </div>
+      
+          <div class="form-group">
+              <label for="message">Mensaje</label>
+              <input name="message" class="form-control" id="message" rows="3" placeholder="Ingresa tu solicitud" maxlength="150" required></input>
+              <small class="form-text text-muted">Máximo 150 caracteres.</small>
+          </div>
+      
+          <div class="form-group">
+              <label for="image" class="form-label">Adjuntar imagen</label>
+              <input type="file" name="image" class="form-control" id="image" accept="image/*">
+          </div>
+      
+          <button type="submit" class="btn btn-primary" name="form1_submit">Enviar</button>
+      </form>
+      
+      
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <h2 class="section-title">¿Quieres visitarnos? Te estamos esperando</h2>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15907.473230874135!2d-74.1270078!3d4.6175723!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9eb27c4ce98d%3A0x47e950f698aa61c2!2sZayro%20Disfraces!5e0!3m2!1ses-419!2sco!4v1709082845251!5m2!1ses-419!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script src="{% static 'js/inicio/nosotros.js' %}"></script>
+{% endblock %}

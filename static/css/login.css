@@ -1,0 +1,40 @@
+.login-container {
+    margin: auto;
+    max-width: 400px;
+}
+.footer-distributed {
+    bottom: 0%;
+    position: absolute;
+}
+
+.formulario{
+    background-color: #e3e3e3;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #571845;
+    color: #e3e3e3;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-block:hover {
+    background-color: #571845;
+    color:#e3e3e3;
+}
+
+.crear,
+.olvidar{
+    color:black;
+}
+.crear:hover,
+.olvidar:hover {
+    color: #571845;
+    font-weight: bold; 
+    text-decoration: none; 
+}
+

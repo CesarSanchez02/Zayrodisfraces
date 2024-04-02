@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% load i18n %}
+
+{% block content %}
+  <div class="container">
+    <div class="login-container">
+      <div class="logout-confirmation border rounded p-4 mt-5">
+        <h1 class="text-center">{% trans 'Cerrar sesión' %}</h1>
+        <p class="text-center">
+          {% blocktrans %}¿Está seguro de querer cerrar sesión?{% endblocktrans %}
+        </p>
+        <form class="logout" method="post" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          <button class="btn btn-danger btn-block" type="submit">{% trans 'Cerrar sesión' %}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+<style>
+  .login-container {
+    margin: auto;
+    max-width: 400px;
+  }
+  .footer-distributed {
+    bottom: 0%;
+    position: absolute;
+  }
+</style>
+{% endblock %}

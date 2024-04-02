@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <h2>Review Your Order</h2>
+    <p><strong>Product:</strong> {{ inventario.id_producto.nombre_disfraz }}</p>
+    <p><strong>Description:</strong> {{ inventario.id_producto.descripcion }}</p>
+    <p><strong>Price:</strong> ${{ inventario.precio_unitario }}</p>
+    <form action="{% url 'checkout' inventario.id_inventario %}" method="post" id="payment-form">
+        {% csrf_token %}
+        <div id="card-element">
+        <!-- Elements will create input elements here -->
+        </div>
+
+        <!-- We'll put the error messages in this element -->
+        <div id="card-errors" role="alert"></div>
+
+        <button id="submit">Pay Now</button>
+    </form>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Create an instance of the Stripe object with your publishable API key
+        var stripe = Stripe('{{ stripe_publishable_key }}');
+
+        // Create an instance of elements
+        var elements = stripe.elements();
+
+        // Create an instance of the card Element
+        var card = elements.create('card');
+
+        // Add an instance of the card Element into the `card-element` div
+        card.mount('#card-element');
+
+        // Handle real-time validation errors from the card Element
+        card.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Disable the submit button to prevent multiple submissions
+            document.getElementById('submit').disabled = true;
+
+            // Create a payment method using the card Element and stripe.confirmCardPayment method
+            stripe.createPaymentMethod({
+                type: 'card',
+                card: card,
+            }).then(function(result) {
+                if (result.error) {
+                    // Display error message if there's an issue
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                    
+                    // Enable the submit button to allow retrying
+                    document.getElementById('submit').disabled = false;
+                } else {
+                    // If there's no error, proceed to confirm the payment
+                    stripe.confirmCardPayment('{{ client_secret }}', {
+                        payment_method: result.paymentMethod.id
+                    }).then(function(confirmResult) {
+                        if (confirmResult.error) {
+                            // Display error message if confirmation fails
+                            var errorElement = document.getElementById('card-errors');
+                            errorElement.textContent = confirmResult.error.message;
+
+                            // Enable the submit button to allow retrying
+                            document.getElementById('submit').disabled = false;
+                        } else {
+                            // If payment is successful, redirect to success URL
+                            window.location.href = '{{ success_url }}';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

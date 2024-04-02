@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+  Crear cuenta - Zayro Disfraces
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form id="registerForm" action="{% url 'account_signup' %}" method="post" class="mt-5 mb-5 border p-4 formulario">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% for error in field.errors %}
+              <div class="text-danger">{{ error }}</div>
+            {% endfor %}
+            {% if field.help_text %}
+              <small id="{{ field.id_for_label }}Help" class="form-text text-muted">{{ field.help_text }}</small>
+            {% endif %}
+          </div>
+        {% endfor %}
+        <button type="submit" class=" btn-block">Crear cuenta</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

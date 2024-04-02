@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css" />
+    <link rel="stylesheet" href="{% static 'css/inicio/style.css' %}" />
+{% endblock %}
+
+{% block title %}Inicio - Zayro Disfraces{% endblock %}
+
+{% block content %}
+    <ul class="bxslider">
+        <li class="slide-item"><img src="https://ik.imagekit.io/Bc/primera.webp" alt="Descubre el personaje que llevas dentro con zayro disfraces" loading="lazy" /></li>
+        <li class="slide-item"><img src="https://ik.imagekit.io/Bc/segunda.webp" alt="En nuestra temporada de Halloween, aprovecha nuestros descuentos" loading="lazy" /></li>
+        <li class="slide-item"><img src="https://ik.imagekit.io/Bc/tercera.webp" alt="Es hora de festejar, salir y celebrar con zayro todo el año es carnaval" loading="lazy" /></li>
+    </ul>
+
+    <hr class="hr-text" data-content="¡No busques más!" />
+
+    <div id="app" class="container">
+        <card data-image="https://ik.imagekit.io/Bc/carrusel2.webp" onClick="location.href={% url 'products' %}">
+            <h1 slot="header">DISFRACES PARA CABALLERO</h1>
+        </card>
+        <card data-image="https://ik.imagekit.io/Bc/carrusel6.webp" onClick="location.href={% url 'products' %}">
+            <h1 slot="header">DISFRACES PARA DAMA</h1>
+        </card>
+        <card data-image="https://ik.imagekit.io/Bc/carrusel1.webp" onClick="location.href={% url 'products' %}">
+            <h1 slot="header">DISFRACES PARA NIÑO</h1>
+        </card>
+        <card data-image="https://ik.imagekit.io/Bc/ninos.webp" onClick="location.href={% url 'products' %}">
+            <h1 slot="header">DISFRACES PARA NIÑA</h1>
+        </card>
+    </div>
+
+    
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.7.0-alpha.2/umd/react.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.7.0-alpha.2/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="{% static 'js/inicio/main.js' %}" defer></script>
+{% endblock %}

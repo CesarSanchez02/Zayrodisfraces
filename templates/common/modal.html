@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header bg-purple text-white">
+      <h4 class="modal-title text-center" id="userPanelLabel">
+        {% if user.is_authenticated %}
+          Hola, {{ user.username }}
+        {% else %}
+          Bienvenido
+        {% endif %}
+      </h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body bg-dark">
+      {% if user.is_authenticated %}
+        <div class="list-group">
+          <a href="{% url 'account_change_password' %}" class="cambiar_constraseña list-group-item">Cambiar contraseña</a>
+          <a href="{% url 'account_logout' %}" class="cerrar_sesion list-group-item">Cerrar sesión</a>
+        </div>
+      {% else %}
+        <div class="list-group">
+          <a href="{% url 'account_login' %}" class="iniciar_sesion list-group-item ">Iniciar sesión</a>
+          <a href="{% url 'account_signup' %}" class="registrarse list-group-item ">Registrarse</a>
+          <a href="{% url 'account_reset_password' %}" class="olvidar list-group-item ">¿Olvidaste tu contraseña?</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

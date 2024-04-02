@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'Lemonada';
+    src: url('fonts/Lemonada/static/Lemonada-Bold.ttf') format('ttf');
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lemonada', cursive;
+}
+
+:root {
+    --main-1st: #ffffff;
+    --main-2nd: #9E5DC9;
+    --main-3rd: #900C3E;
+    --main-4th: #571845;
+    --main-5th: #222228;
+}
+
+.logo {
+    flex: 1;
+    font-family: 'Lemonada', cursive;
+}
+
+.menu-icon i {
+    font-size: 24px;
+    color: var(--main-1st);
+}
+
+.zayro {
+    text-align: center;
+    color: var(--main-1st);
+}
+
+.disfraces {
+    color: var(--main-2nd);
+}
+
+.dropdown-menu {
+    left: -100% !important;
+}
+
+.modal-header {
+    background-color: var(--main-2nd);
+}
+
+.btn-login {
+    position: relative;
+    background-color: #23242A;
+    color: var(--main-1st);
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 20px;
+    font-family: 'Lemonada', cursive;
+    border-color: var(--main-4th);
+    margin-left: 0;
+    width: 200px;
+    border-style: solid;
+}
+
+.btn-login:hover {
+    background-color: var(--main-4th);
+}
+
+header .header-menu {
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+header .header-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--main-5th);
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tabs-container {
+    border-bottom: 2px solid black;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tab {
+    color: #616267;
+    font-size: 20px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    text-decoration: none;
+    border-top: 2px solid var(--main-5th);
+    border-left: 2px solid var(--main-5th);
+    border-right: 2px solid var(--main-5th);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: var(--main-1st);
+    transition: background-color 0.3s ease;
+}
+
+.tab:hover {
+    background-color: var(--main-3rd);
+    color: white;
+    x
+}
+
+.tab.active,
+.sidebar .nav-categories li .active {
+    color: var(--main-3rd);
+    text-decoration: none;
+}

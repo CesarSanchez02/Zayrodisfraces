@@ -1,0 +1,17 @@
+{% extends "admin/change_form.html" %}
+
+{% block submit_buttons_bottom %}
+    <div class="submit-row">
+        {% if not is_popup %}
+        <input type="submit" value="Save" name="save" />
+        {% endif %}
+        {% if enable_disable_buttons %}
+            {% if enable_disable_buttons.enable %}
+            <input type="submit" value="Enable" name="enable" />
+            {% endif %}
+            {% if enable_disable_buttons.disable %}
+            <input type="submit" value="Disable" name="disable" />
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

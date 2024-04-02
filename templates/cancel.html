@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+  Cancelación de Compra - Disfraces Zayro
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title text-center">¡Tu compra ha sido cancelada!</h2>
+                    <p class="card-text">Lamentamos que hayas decidido cancelar tu compra. Si deseas comprar otro tipo de disfraz, ¡estamos aquí para ayudarte!</p>
+                    <p class="card-text">Explora nuestra colección de disfraces y encuentra el perfecto para ti.</p>
+                    <div class="text-center">
+                        <a href="{% url 'products' %}" class="btn btn-primary">Explorar disfraces</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<style>
+    .footer-distributed {
+    bottom: 0%;
+    position: absolute;
+    }
+</style>
+{% endblock %}
